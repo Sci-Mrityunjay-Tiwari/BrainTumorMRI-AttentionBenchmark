@@ -1,0 +1,23 @@
+# MATLAB temporary files
+*.asv
+*.autosave
+*.bak
+
+# MATLAB figures
+*.fig
+
+# MATLAB generated files
+*.mex*
+*.p
+*.slxc
+*.slxc_r*
+
+# Operating system files
+Thumbs.db
+.DS_Store
+
+# MATLAB project metadata
+resources/project/
+
+# Zip archives
+*.zip
