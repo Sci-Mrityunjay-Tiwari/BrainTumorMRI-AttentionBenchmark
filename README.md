@@ -88,7 +88,7 @@ publication assets.
 # Repository Structure
 
 ``` text
-BrainTumorMRI-EfficientNet-SA
+BrainTumorMRI-AttentionBenchmark
 │
 ├── Dataset/
 ├── Images/
