@@ -92,16 +92,16 @@ BrainTumorMRI-AttentionBenchmark
 │
 ├── Dataset/
 ├── Images/
-├── Paper/
+├── Manuscript/
 ├── Results/
 │   ├── Figures/
 │   ├── Metrics/
 │   └── Raw Results/
 ├── Scripts/
-│   ├── AttentionLayers/
-│   ├── Evaluation/
-│   ├── Train/
-│   └── Utilities/
+│   ├── Attention_Layers_Scripts/
+│   ├── Evaluation_Scripts/
+│   ├── Train_Scripts/
+│   └── Utilities_Scripts/
 ├── TrainedModels/
 ├── LICENSE
 ├── README.md
@@ -120,7 +120,7 @@ BrainTumorMRI-AttentionBenchmark
 
   TrainedModels                 Saved model checkpoints (except VGG16)
 
-  Paper                         Manuscript resources
+  Manuscript                    Manuscript resources
 
   Images                        Repository assets
   -----------------------------------------------------------------------
@@ -140,7 +140,7 @@ released by **Bhuvaji et al.(2020)**.
 -   Pituitary Tumour: **901**
 -   No Tumour: **500**
 
-The dataset contains both T1-weighted and T2-weighted MRI scans and
+The dataset contains T1-weighted, T2-weighted and FLAIR-weighted MRI scans and
 provides a realistic multi-class classification benchmark.
 
 **Dataset is not redistributed through this repository.**
@@ -175,7 +175,7 @@ https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri
 Training scripts are available in:
 
 ``` text
-Scripts/Train/
+Scripts/Train_Scripts/
 ```
 
 All models were trained using identical experimental settings to ensure
@@ -188,11 +188,24 @@ fair benchmarking.
 Evaluation scripts are available in:
 
 ``` text
-Scripts/Evaluation/
+Scripts/Evaluation_Scripts/
 ```
 
-The repository includes both the complete raw experimental results and
-the final aggregated performance metrics reported in the manuscript.
+The evaluation pipeline includes metric computation, confusion-matrix visualization, result aggregation, comparative analysis, and Grad-CAM visualization for the 
+EfficientNet-CBAM model. The repository includes the complete raw experimental results and the final aggregated performance metrics reported in the manuscript.
+
+------------------------------------------------------------------------
+
+### Grad-CAM Visualization
+
+The `run_gradcam_cbam.m` script generates Grad-CAM visualizations using the
+`channel_attention` output of the trained EfficientNet-CBAM model as the
+feature layer. The script produces class-wise input images, Grad-CAM
+heatmaps, activation maps, and CBAM overlays.
+
+Run from the repository root:
+
+run('Scripts/Evaluation_Scripts/run_gradcam_cbam.m')
 
 ------------------------------------------------------------------------
 
@@ -240,7 +253,7 @@ reliable clinical translation.
 
 -   GitHub: https://github.com/Sci-Mrityunjay-Tiwari
 -   Repository:
-    https://github.com/Sci-Mrityunjay-Tiwari/BrainTumorMRI-EfficientNet-SA
+    https://github.com/Sci-Mrityunjay-Tiwari/BrainTumorMRI-AttentionBenchmark
 -   LinkedIn: https://www.linkedin.com/in/mrityunjay-tiwari-bb3767229/
 -   Email: mrityunjay.tiwari.sci@gmail.com
 
