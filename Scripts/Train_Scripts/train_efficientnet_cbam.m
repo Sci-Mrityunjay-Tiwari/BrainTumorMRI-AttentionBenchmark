@@ -102,8 +102,7 @@ newHead = [
 
 lgraph = addLayers(lgraph,newHead);
 lgraph = connectLayers(lgraph,lastCBAMLayer,'gap_new');
-
-fprintf('✓ Classification head added\n\n');
+analyzeNetwork(lgraph)
 
 %% ------------------------------------------------------------------------
 % Training

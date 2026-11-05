@@ -107,82 +107,50 @@ classdef ChannelAttentionLayer < nnet.layer.Layer & nnet.layer.Formattable
         %--------------------------------------------------------------
         function Z = predict(layer, X)
 
-            %==========================================================
-            % Global Average Pooling
-            %==========================================================
-            avgF = squeeze(mean(X,[1 2]));
+            % Global average pooling
+            avgF = squeeze(mean(X, [1 2]));
 
             if isvector(avgF)
                 avgF = avgF(:);
             end
 
-            %==========================================================
-            % Global Max Pooling
-            %==========================================================
-            maxF = squeeze(max(X,[],[1 2]));
+            % Global max pooling
+            maxF = squeeze(max(X, [], [1 2]));
 
             if isvector(maxF)
                 maxF = maxF(:);
             end
 
-            %==========================================================
-            % Extract learnable parameters
-            %
-            % extractdata() is intentionally used here to avoid
-            % dlarray dimension-label conflicts during matrix
-            % multiplication. This implementation has been verified
-            % to work reliably for the current MATLAB release.
-            %==========================================================
-            W1 = extractdata(layer.W1);
-            b1 = extractdata(layer.b1);
+            % Remove dimension labels while preserving automatic differentiation.
+            % Do NOT use extractdata here.
+            W1 = stripdims(layer.W1);
+            b1 = stripdims(layer.b1);
+            W2 = stripdims(layer.W2);
+            b2 = stripdims(layer.b2);
 
-            W2 = extractdata(layer.W2);
-            b2 = extractdata(layer.b2);
+            avgF = stripdims(avgF);
+            maxF = stripdims(maxF);
 
-            avgF = extractdata(avgF);
-            maxF = extractdata(maxF);
-
-            %==========================================================
-            % Shared MLP
-            % Branch 1 : Average-pooled descriptors
-            %==========================================================
+            % Shared MLP: average-pooled branch
             avgHidden = max(0, W1 * avgF + b1);
-
             avgOutput = W2 * avgHidden + b2;
 
-            %==========================================================
-            % Shared MLP
-            % Branch 2 : Max-pooled descriptors
-            %==========================================================
+            % Shared MLP: max-pooled branch
             maxHidden = max(0, W1 * maxF + b1);
-
             maxOutput = W2 * maxHidden + b2;
 
-            %==========================================================
-            % Combine both attention branches
-            %==========================================================
+            % Combine attention branches and apply sigmoid
             channelAttention = ...
                 1 ./ (1 + exp(-(avgOutput + maxOutput)));
 
-            %==========================================================
-            % Reshape attention vector
-            %
-            % Required shape:
-            %
-            %   [1 1 Channels Batch]
-            %
-            % so that broadcasting can be performed during
-            % channel-wise multiplication.
-            %==========================================================
-            channelAttention = reshape( ...
-                channelAttention, ...
-                [1 1 size(channelAttention,1) size(channelAttention,2)]);
+            % Reshape to [1 1 Channels Batch]
+            channelAttention = reshape(channelAttention, ...
+                [1 1 size(channelAttention, 1) size(channelAttention, 2)]);
 
-            channelAttention = dlarray(channelAttention);
+            % Apply the expected spatial-spatial-channel-batch format
+            channelAttention = dlarray(channelAttention, 'SSCB');
 
-            %==========================================================
             % Apply channel attention
-            %==========================================================
             Z = X .* channelAttention;
 
         end

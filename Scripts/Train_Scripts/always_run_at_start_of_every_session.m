@@ -1,4 +1,5 @@
-% ─── Reload dataset & splits (run this at the START of every session) ───
+% Reload dataset & splits
+% Run this script once every time before you start a new session.
 rng(42);   % CRITICAL: always same seed = same splits
 dataPath = 'BrainTumorDataset/';
 imds = imageDatastore(dataPath,'IncludeSubfolders',true,'LabelSource','foldernames');

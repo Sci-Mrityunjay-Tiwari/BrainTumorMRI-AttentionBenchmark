@@ -1,21 +1,49 @@
-MIT License
+# PROPRIETARY LICENSE — ALL RIGHTS RESERVED
 
-Copyright (c) 2026 Mrityunjay Tiwari
+Copyright © 2026 Mrityunjay Tiwari. All Rights Reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository and its contents, including source code, MATLAB scripts, implementations, documentation, and associated materials, are proprietary intellectual property of the copyright holder, except for third-party materials explicitly identified otherwise.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 1. No License Granted
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+No permission, licence, or other rights are granted to any person or organisation to:
+
+- Copy, reproduce, or redistribute the source code.
+- Modify, adapt, or create derivative works.
+- Use the code in academic, research, or commercial projects.
+- Distribute, sublicense, sell, or commercially exploit any part of this repository.
+- Incorporate the code into other software, products, or services.
+
+Any such use requires prior written permission from the copyright holder.
+
+## 2. Viewing and Access
+
+The repository may be publicly accessible for viewing and informational purposes.
+
+Public availability does not constitute permission to reuse, modify, reproduce, or distribute its contents.
+
+Access through GitHub remains subject to GitHub's applicable Terms of Service.
+
+## 3. Intellectual Property Rights
+
+All rights, title, and interest in the original materials remain with the copyright holder, subject to applicable third-party rights.
+
+No patent licence or permission to practise any patentable invention is granted under this notice.
+
+## 4. Third-Party Materials
+
+Third-party datasets, libraries, dependencies, pretrained models, and other externally sourced materials remain subject to their respective licences and terms of use.
+
+This notice does not override third-party intellectual property rights.
+
+## 5. Permission Requests
+
+Requests for academic, research, commercial, or other permissions must be submitted to the copyright holder in writing.
+
+**Copyright Holder:** Mrityunjay Tiwari
+
+**Contact:** mrityunjay.tiwari.sci@gmail.com
+
+## 6. Disclaimer
+
+The repository and its contents are provided for informational purposes without warranties of any kind, to the maximum extent permitted by applicable law.
